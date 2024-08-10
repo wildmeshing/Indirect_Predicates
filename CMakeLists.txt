@@ -41,7 +41,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/recipes/")
 
 # Set default minimum C++ standard
 if(INDIRECTPREDICATES_TOPLEVEL_PROJECT)
-    set(CMAKE_CXX_STANDARD 20)
+    set(CMAKE_CXX_STANDARD 17)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
     set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
@@ -57,8 +57,8 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/recipes/")
 include(indirectpredicates_cpm_cache)
 include(indirectpredicates_use_colors)
 
-# Generate position independent code by default
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# # Generate position independent code by default
+# set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 ################################################################################
 
@@ -77,7 +77,7 @@ add_library(indirectpredicates::indirectpredicates ALIAS indirectpredicates)
 target_include_directories(indirectpredicates INTERFACE ${INDIRECTPREDICATES_INCLUDE_DIR})
 
 # Use C++20
-target_compile_features(indirectpredicates INTERFACE cxx_std_20)
+target_compile_features(indirectpredicates INTERFACE cxx_std_17)
 
 if (MSVC)
     add_compile_options(/bigobj)
